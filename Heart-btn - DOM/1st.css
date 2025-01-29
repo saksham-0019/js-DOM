@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('https://i.pinimg.com/236x/bf/63/1d/bf631d577cd3420ecf34849a7e49bd96.jpg');
+    background-size: cover;  /* Ensures the image covers the entire viewport */
+    background-position: center;  /* Centers the background image */
+    background-repeat: no-repeat;  /* Prevents repeating the image */
+    overflow: hidden;
+    animation: background-fade 1s ease-out; /* Background fade-in effect */
+}
+
+@keyframes background-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#container {
+    width: 300px;
+    height: 400px;
+    background-color: bisque;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    opacity: 0;
+    animation: container-landing 1.2s ease-out forwards; /* Landing animation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes container-landing {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+#container i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 80px;
+    color: #fff;
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+#container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Zoom in effect with shadow */
+}
+
+#container:active {
+    transform: scale(0.95); /* Clicking effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#container i {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+}
+
+#container:active i {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+}
